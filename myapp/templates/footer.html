@@ -1,0 +1,67 @@
+{% load static %}
+	{% for MusicalStoreHome in Home %}
+		{% if MusicalStoreHome.id == 1 %}
+
+           <!-- CTA -->
+				<section id="cta">
+
+					<p>{{ MusicalStoreHome.text7 }}</p>
+
+					<form>
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<ul class="actions special">
+									<li><a href="{% url 'musical_store_reg' %}" class="button">{{ MusicalStoreHome.btntext2 }}</a></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>@{{ MusicalStoreHome.copyrighttext }}</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+    	{% endif %}
+    {% endfor %}
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+	<script>
+	$( document ).ready(function() {
+		var sesvalue = $('#sesid').val();
+		if(sesvalue != ""){
+			$('.ses1').addClass('sesdis2');
+			$('.ses3').addClass('sesdis2');
+			$('.ses2').removeClass('sesdis2');
+			$('.ses4').removeClass('sesdis2');
+		} else {
+			$('.ses2').addClass('sesdis2');
+			$('.ses4').addClass('sesdis2');
+			$('.ses1').removeClass('sesdis2');
+			$('.ses3').removeClass('sesdis2');
+		}
+	});
+	$("#jqloginformbutton").click(function(){
+		$('#jqloginform').attr('action', '{% url 'musical_store_logout' %}');
+	});
+
+  </script>
+	</body>
+</html>
+

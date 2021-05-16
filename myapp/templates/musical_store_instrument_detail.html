@@ -1,0 +1,32 @@
+{% include "header.html" %}
+<!-- Main -->
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<section id="main" class="container">
+
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+
+			<section class="box special features">
+				<div class="customtitle1">Musical Instruments</div>
+				<section class="box special features">
+				<div class="features-row">
+						<div class="customdetailtitle1">{{ Instrumentdetail.title }}</div>
+						<img src="{{ Instrumentdetail.img.url }}" height="400px" width="100%">
+						<div class="customdetailtitle2">{{ Instrumentdetail.subtitle }}</div>
+						<div class="customdetailtitle3">{{ Instrumentdetail.desc }}</div>
+				</div>
+				</section>
+			</section>
+		</section>
+	{% endif %}
+{% endfor %}
+{% include "footer.html" %}

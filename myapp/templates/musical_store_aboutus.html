@@ -1,0 +1,51 @@
+{% include "header.html" %}
+<!-- Main -->
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<section id="main" class="container">
+
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+			<section class="box special features">
+				<div class="customtitle1">About Us</div>
+
+				<section class="box special features custombox1">
+				<div class="features-row">
+					{% for MusicalStoreAboutus in Aboutus %}
+					<div class="col-lg-12 col-md-12 col-sm-12">
+
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<img src="{{ MusicalStoreAboutus.img.url }}" class="" height="300px" width="100%">
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 customaboutus">
+							<div>
+								<p></p>
+								<p>{{ MusicalStoreAboutus.title }}</p>
+								<p>{{ MusicalStoreAboutus.desc1 }}</p>
+								<p>{{ MusicalStoreAboutus.desc2 }}</p>
+								<p>{{ MusicalStoreAboutus.desc3 }}</p>
+								<p>{{ MusicalStoreAboutus.desc4 }}</p>
+
+								<p><a href="{% url 'musical_store_home' %}">{{ MusicalStoreHome.logotext1 }}{{ MusicalStoreHome.logotext2 }}</a></p>
+							</div>
+						</div>
+
+					</div>
+					{% endfor %}
+				</div>
+				</section>
+
+			</section>
+
+		</section>
+	{% endif %}
+{% endfor %}
+{% include "footer.html" %}

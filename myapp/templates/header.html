@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		{% load static %}
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
+	</head>
+	<style>
+	.customtitle1{
+		color: #e89980;
+		font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 50px;
+	}
+	.customimg{
+		width: 100%;
+		min-height: 120px;
+		max-height: 400px;
+	}
+	.box.features.custombox1 .features-row section :last-child {
+		margin-bottom: 10;
+	}
+
+	.customdetailtitle1{
+		font-size: 30px;
+		font-weight: 600;
+		text-align: left;
+		margin-bottom: 10px;
+	}
+	.customdetailtitle2{
+		font-size: 20px;
+		font-weight: 500;
+		text-align: left;
+		margin-bottom: 10px;
+	}
+	.customdetailtitle3{
+		text-align: left;
+	}
+	.customcontactus{
+		text-align: left;
+	}
+	.customaboutus{
+		text-align: left;
+	}
+	#jqloginformbutton{
+		box-shadow: none !important;
+	}
+	.sesdis1{
+		display: inline-block !important;
+	}
+	.sesdis2{
+		display: none !important;
+	}
+	</style>
+	<body class="landing is-preload">
+	{% for MusicalStoreHome in Home %}
+		{% if MusicalStoreHome.id == 1 %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="index.html">{{ MusicalStoreHome.logotext1 }}</a>{{ MusicalStoreHome.logotext2 }}</h1>
+					<nav id="nav">
+						<!--<ul>
+							<input type="hidden" id="sesid" name="sesid" value="{{ request.session.userid }}">
+							<li><a href="{% url 'musical_store_home' %}">{{ MusicalStoreHome.btntext1 }}</a></li>
+							<li class="ses1"><a href="{% url 'musical_store_reg' %}">{{ MusicalStoreHome.btntext2 }}</a></li>
+							<li class="ses2 sesdis2"><a href="{% url 'musical_store_reg_show' %}">{{ MusicalStoreHome.btntext3 }}</a></li>
+							<li><a href="{% url 'musical_store_instrument' %}">{{ MusicalStoreHome.btntext4 }}</a></li>
+							<li><a href="{% url 'musical_store_aboutus' %}">{{ MusicalStoreHome.btntext7 }}</a></li>
+							<li><a href="{% url 'musical_store_contactus' %}">{{ MusicalStoreHome.btntext8 }}</a></li>
+							<li class="ses3"><a href="{% url 'musical_store_login' %}">{{ MusicalStoreHome.btntext5 }}</a></li>
+							<li class="ses4 sesdis2">
+								<form action="" method="POST" enctype="multipart/form-data" id="jqloginform">
+								{% csrf_token %}
+									<input type="hidden" id="id" name="id" value="">
+									<input type="submit" id="jqloginformbutton" value="{{ MusicalStoreHome.btntext6 }}" />
+								</form>
+							</li>
+						</ul>-->
+						<ul>
+							<li>
+							{% with usersession=request.session.userid %}
+							<li><a href="{% url 'musical_store_home' %}">{{ MusicalStoreHome.btntext1 }}</a></li>
+							{% if usersession == "" %}
+								<li><a href="{% url 'musical_store_reg' %}">{{ MusicalStoreHome.btntext2 }}</a></li>
+							{% endif %}
+							{% if usersession != "" %}
+								<li><a href="{% url 'musical_store_reg_show' %}">{{ MusicalStoreHome.btntext3 }}</a></li>
+							{% endif %}
+							<li><a href="{% url 'musical_store_instrument' %}">{{ MusicalStoreHome.btntext4 }}</a></li>
+							<li><a href="{% url 'musical_store_aboutus' %}">{{ MusicalStoreHome.btntext7 }}</a></li>
+							<li><a href="{% url 'musical_store_contactus' %}">{{ MusicalStoreHome.btntext8 }}</a></li>
+							{% if usersession == "" %}
+								<li><a href="{% url 'musical_store_login' %}">{{ MusicalStoreHome.btntext5 }}</a></li>
+							{% endif %}
+							{% if usersession != "" %}
+								<li>
+								<form action="" method="POST" enctype="multipart/form-data" id="jqloginform">
+								{% csrf_token %}
+									<input type="hidden" id="id" name="id" value="">
+									<input type="submit" id="jqloginformbutton" value="{{ MusicalStoreHome.btntext6 }}" />
+								</form>
+								</li>
+							{% endif %}
+
+							{% endwith %}
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>{{ MusicalStoreHome.text1 }}</h2>
+					<p>{{ MusicalStoreHome.text2 }}</p>
+					<ul class="actions special">
+						<li><a href="{% url 'musical_store_reg' %}" class="button primary">{{ MusicalStoreHome.btntext2 }}</a></li>
+						<li><a href="{% url 'musical_store_instrument' %}" class="button">{{ MusicalStoreHome.btntext4 }}</a></li>
+					</ul>
+				</section>
+
+        {% endif %}
+    {% endfor %}

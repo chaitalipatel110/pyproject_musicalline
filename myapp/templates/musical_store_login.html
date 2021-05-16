@@ -1,0 +1,54 @@
+{% include "header.html" %}
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<!-- Main -->
+		<section id="main" class="container">
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+
+			<section class="box special features">
+				<div class="customtitle1">Login</div>
+				<br>
+
+				<form action="{% url 'musical_store_login_add' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Username:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="username" name="username" value="">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Password:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="password" name="password" value="">
+						</div>
+					</div>
+
+					<input type="hidden" id="status" name="status" value="1">
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-12 col-12-mobilep">
+							<input type="submit" name="submit" value="Login" class="fit" />
+						</div>
+					</div>
+
+				</form>
+			</section>
+		</section>
+	{% endif %}
+{% endfor %}
+{% include "footer.html" %}

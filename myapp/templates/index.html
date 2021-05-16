@@ -1,0 +1,51 @@
+<!-- Main -->
+
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<section id="main" class="container">
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+			<section class="box special features">
+				<div class="features-row">
+					<section>
+						<!--<span class="icon solid major fa-bolt accent2"></span>-->
+						<!--<img src="{{ person.profile_pic.url }}" height="100px" width="100px">-->
+						<img src="{{ MusicalStoreHome.img1.url }}" height="250px" width="300px">
+						<h3>{{ MusicalStoreHome.title1 }}</h3>
+						<h4>{{ MusicalStoreHome.subtitle1 }}</h4>
+						<p>{{ MusicalStoreHome.subdesc1 }}</p>
+					</section>
+					<section>
+						<img src="{{ MusicalStoreHome.img2.url }}" height="250px" width="300px">
+						<h3>{{ MusicalStoreHome.title2 }}</h3>
+						<h4>{{ MusicalStoreHome.subtitle2 }}</h4>
+						<p>{{ MusicalStoreHome.subdesc2 }}</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<img src="{{ MusicalStoreHome.img3.url }}" height="250px" width="300px">
+						<h3>{{ MusicalStoreHome.title3 }}</h3>
+						<h4>{{ MusicalStoreHome.subtitle3 }}</h4>
+						<p>{{ MusicalStoreHome.subdesc3 }}</p>
+					</section>
+					<section>
+						<img src="{{ MusicalStoreHome.img4.url }}" height="250px" width="300px">
+						<h3>{{ MusicalStoreHome.title4 }}</h3>
+						<h4>{{ MusicalStoreHome.subtitle4 }}</h4>
+						<p>{{ MusicalStoreHome.subdesc4 }}</p>
+					</section>
+				</div>
+			</section>
+		</section>
+	{% endif %}
+{% endfor %}
+

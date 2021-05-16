@@ -1,0 +1,97 @@
+{% include "header.html" %}
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<!-- Main -->
+		<section id="main" class="container">
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+
+			<section class="box special features">
+				<div class="customtitle1">Registration Form</div>
+				<br>
+				<form action="{% url 'musical_store_reg_add' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input type="hidden" name="next" value="{% url 'musical_store_reg_add' %}">
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							First Name:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="firstname" name="firstname" value="">
+						</div>
+					</div>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Last Name:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="lastname" name="lastname" value="">
+
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Email:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="email" id="email" name="email" value="">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Mobile:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="mobile" name="mobile" value="">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Image:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="file" id="img" name="img">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Username:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="username" name="username" value="">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-mobilep">
+							Password:
+						</div>
+						<div class="col-8 col-12-mobilep">
+							<input type="text" id="password" name="password" value="">
+						</div>
+					</div>
+
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-12 col-12-mobilep">
+							<input type="submit" value="Sign Up" class="fit" />
+						</div>
+					</div>
+
+				</form>
+			</section>
+		</section>
+	{% endif %}
+{% endfor %}
+{% include "footer.html" %}

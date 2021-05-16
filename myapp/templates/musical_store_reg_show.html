@@ -1,0 +1,83 @@
+{% include "header.html" %}
+{% for MusicalStoreHome in Home %}
+	{% if MusicalStoreHome.id == 1 %}
+		<!-- Main -->
+		<section id="main" class="container">
+			<section class="box special">
+				<header class="major">
+					<h2>{{ MusicalStoreHome.text3 }}<br/>
+						{{ MusicalStoreHome.text4 }}</h2>
+					<p>{{ MusicalStoreHome.text5 }} <br />
+					{{ MusicalStoreHome.text6 }}</p>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
+
+		<section class="box special features">
+			<div class="customtitle1">Profile</div>
+			<section class="box special features custombox1">
+			<div class="features-row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<form action="{% url 'musical_store_reg_edit' %}" id="jqprofileform" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input type="hidden" id="id" name="id" value="{{ Reg.id }}">
+
+					<div class="col-lg-4 col-md-4 col-sm-12 customprofile">
+
+						<img src="{{ Reg.img.url }}" name="" class="" height="300px" width="100%" >
+						<input type="file" id="img" name="img" value="" class="jqprofileimg">
+
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12 customprofile">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="text" id="firstname" name="firstname" value="{{ Reg.firstname }}">
+							</div>
+						</div>
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="text" id="lastname" name="lastname" value="{{ Reg.lastname }}">
+							</div>
+						</div>
+
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="email" id="email" name="email" value="{{ Reg.email }}">
+							</div>
+						</div>
+
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="text" id="mobile" name="mobile" value="{{ Reg.mobile }}">
+							</div>
+						</div>
+
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="text" id="username" name="username" value="{{ Reg.username }}">
+							</div>
+						</div>
+
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="text" id="password" name="password" value="{{ Reg.password }}">
+							</div>
+						</div>
+
+						<input type="hidden" id="created" name="created" value="{{ Reg.created }}">
+
+
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12 col-12-mobilep">
+								<input type="submit" value="Update" class="fit" />
+							</div>
+						</div>
+					</div>
+					</form>
+				</div>
+			</section>
+		</section>
+		</section>
+	{% endif %}
+{% endfor %}
+{% include "footer.html" %}

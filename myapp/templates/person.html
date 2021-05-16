@@ -1,0 +1,25 @@
+{% load static %}
+<div>
+    <div>First Name: {{ person.first_name }}</div>
+    <div>Last Name: {{ person.last_name }}</div>
+    <div>Email: {{ person.email }}</div>
+    <div>
+        <img src="{{ person.profile_pic.url }}" height="100px" width="100px">
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+        <input type="text" name="first_name" placeholder="Enter first name">
+        </div>
+        <div>
+            <input type="text" name="last_name" placeholder="Enter last name">
+        </div>
+        <div>
+             <input type="email" name="email" placeholder="Enter Email">
+        </div>
+        <div>
+        <input type="submit">
+        </div>
+    </form>
+</div>
